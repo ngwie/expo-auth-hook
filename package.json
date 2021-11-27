@@ -40,17 +40,22 @@
   },
   "name": "expo-auth-hook",
   "author": "farhan.anggawie@gmail.com",
-  "module": "dist/expo-auth-hook.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/expo-auth-hook.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/expo-auth-hook.esm.js",
-      "limit": "10 KB"
-    }
+  "description": "React OAuth 2.0 Authentication and Authorization Management Library for Expo",
+  "keywords": [
+    "expo",
+    "auth0",
+    "OAuth",
+    "react",
+    "hooks",
+    "react-hooks",
+    "react-native"
   ],
+  "module": "dist/expo-auth-hook.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ngwie/expo-auth-hook.git"
+  },
+  "homepage": "https://github.com/ngwie/expo-auth-hook/blob/main/README.md",
   "devDependencies": {
     "@size-limit/preset-small-lib": "^7.0.3",
     "@types/react": "^17.0.37",
@@ -60,14 +65,12 @@
     "expo-secure-store": "^11.0.3",
     "expo-web-browser": "^10.0.3",
     "husky": "^7.0.4",
+    "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "size-limit": "^7.0.3",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
     "typescript": "^4.5.2"
-  },
-  "dependencies": {
-    "jwt-decode": "^3.1.2"
   }
 }

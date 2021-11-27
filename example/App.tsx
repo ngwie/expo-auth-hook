@@ -11,7 +11,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <AuthProvider
-        clientId={ Config.authClientId}
+        clientId={Config.authClientId}
         domain={Config.authDomain}
         redirectUri={`${Constants.manifest?.scheme}://auth`}
         audience={Config.authAudience}
