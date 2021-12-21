@@ -19,11 +19,11 @@ npm install expo-auth-hook
 yarn add expo-auth-hook
 ```
 
-It also needs other expo libraries and jwt decode
+It also needs other expo libraries
 ```bash
-npm install expo-auth-session expo-secure-store expo-web-browser jwt-decode
+npm install expo-auth-session expo-secure-store expo-web-browser expo-random
 # Or
-yarn add expo-auth-session expo-secure-store expo-web-browser jwt-decode
+yarn add expo-auth-session expo-secure-store expo-web-browser expo-random
 ```
 
 ## Usage

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -24,7 +24,6 @@
     "expo-auth-session": "^3.4.2",
     "expo-secure-store": "^11.0.3",
     "expo-web-browser": "^10.0.3",
-    "jwt-decode": "^3.1.2",
     "react": ">=16"
   },
   "husky": {
@@ -56,6 +55,9 @@
     "url": "git@github.com:ngwie/expo-auth-hook.git"
   },
   "homepage": "https://github.com/ngwie/expo-auth-hook/blob/main/README.md",
+  "dependencies": {
+    "jwt-decode": "^3.1.2"
+  },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^7.0.3",
     "@types/react": "^17.0.37",
@@ -65,7 +67,6 @@
     "expo-secure-store": "^11.0.3",
     "expo-web-browser": "^10.0.3",
     "husky": "^7.0.4",
-    "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "size-limit": "^7.0.3",
