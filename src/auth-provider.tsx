@@ -82,13 +82,14 @@ export function AuthProvider(props: AuthProviderProps) {
   );
 
   const loginWithRedirect = useCallback(
-    async (options?: AuthRequestPromptOptions) => {
+    async (opts?: Record<string, string>, promptOpts?: AuthRequestPromptOptions) => {
+      const _opts = opts ?? {};
       setAuthState(state => ({
         isLoading: true,
         isAuthenticated: state.isAuthenticated,
       }));
 
-      const result = await promptAsync(options);
+      const result = await promptAsync(promptOpts);
 
       if (result.type === 'success') {
         const { accessToken, idToken, refreshToken } = await exchangeCodeAsync(
@@ -99,6 +100,7 @@ export function AuthProvider(props: AuthProviderProps) {
             extraParams: request?.codeVerifier
               ? { code_verifier: request?.codeVerifier }
               : {},
+            ..._opts,
           },
           { tokenEndpoint: `https://${domain}/oauth/token` }
         );
