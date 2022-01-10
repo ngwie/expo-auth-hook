@@ -6,7 +6,11 @@ import { AuthState, initialAuthState } from './auth-state';
 export interface AuthContextInterface extends AuthState {
   getAccessTokenSilently: () => Promise<string>;
 
-  loginWithRedirect: (options?: AuthRequestPromptOptions) => Promise<void>;
+  loginWithRedirect: (
+    options?: AuthRequestPromptOptions & {
+      [key: string]: any;
+    }
+  ) => Promise<void>;
 
   logout: () => Promise<void>;
 }

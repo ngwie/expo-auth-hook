@@ -82,14 +82,54 @@ export function AuthProvider(props: AuthProviderProps) {
   );
 
   const loginWithRedirect = useCallback(
-    async (opts?: Record<string, string>, promptOpts?: AuthRequestPromptOptions) => {
-      const _opts = opts ?? {};
+    async (
+      opts?: AuthRequestPromptOptions & {
+        [key: string]: any;
+      }
+    ) => {
       setAuthState(state => ({
         isLoading: true,
         isAuthenticated: state.isAuthenticated,
       }));
 
-      const result = await promptAsync(promptOpts);
+      const {
+        toolbarColor,
+        browserPackage,
+        enableBarCollapsing,
+        secondaryToolbarColor,
+        showTitle,
+        enableDefaultShareMenuItem,
+        showInRecents,
+        createTask,
+        controlsColor,
+        dismissButtonStyle,
+        readerMode,
+        windowName,
+        windowFeatures,
+        url,
+        useProxy,
+        proxyOptions,
+        ...rest
+      } = opts ?? {};
+
+      const result = await promptAsync({
+        toolbarColor,
+        browserPackage,
+        enableBarCollapsing,
+        secondaryToolbarColor,
+        showTitle,
+        enableDefaultShareMenuItem,
+        showInRecents,
+        createTask,
+        controlsColor,
+        dismissButtonStyle,
+        readerMode,
+        windowName,
+        windowFeatures,
+        url,
+        useProxy,
+        proxyOptions,
+      });
 
       if (result.type === 'success') {
         const { accessToken, idToken, refreshToken } = await exchangeCodeAsync(
@@ -100,7 +140,7 @@ export function AuthProvider(props: AuthProviderProps) {
             extraParams: request?.codeVerifier
               ? { code_verifier: request?.codeVerifier }
               : {},
-            ..._opts,
+            ...rest,
           },
           { tokenEndpoint: `https://${domain}/oauth/token` }
         );
