@@ -157,7 +157,7 @@ export function AuthProvider(props: AuthProviderProps) {
       // TODO: log error remove token
     });
 
-    setAuthState(initialAuthState);
+    setAuthState({...initialAuthState, isLoading: false});
   }, [domain, clientId, _redirectUri]);
 
   useEffect(() => {
